@@ -18,21 +18,16 @@ function App() {
     setSearchField(event.target.value);
   };
 
-  const filterRobots = () => {
-    return robots.filter((robots) =>
-      robots.name.toLowerCase().includes(searchField.toLowerCase())
-    );
-  };
+  const filterRobots = robots.filter((robots) =>
+    robots.name.toLowerCase().includes(searchField.toLowerCase())
+  );
 
   return (
     <div className="tc">
       <h1 className="f1">RoboFriends</h1>
-      <SearchBox
-        searchfield={searchField}
-        searchChange={(e) => handleSearchChage(e)}
-      />
+      <SearchBox searchfield={searchField} searchChange={handleSearchChage} />
       <Scroll>
-        <CardList robots={filterRobots()} />
+        <CardList robots={filterRobots} />
       </Scroll>
     </div>
   );
